@@ -1,16 +1,38 @@
+main {
+  margin: 0 0 0 0;
+}
+
 h1 {
+  margin: 1em auto 2em auto;
   text-align: center;
+  color: #EBFAFF;
+  max-height: 10px
 }
 
 h2 {
   text-align: center;
+  font-style: bold;
+  font-family: 'Josefin Slab', serif;
+  margin: 0 auto auto auto;
+  width: 600px;
+  color: #EBFAFF;
+  text-align: center;
 }
 
 section {
+  margin: auto 10% auto 10%;
+  padding: 2em;
+  background-color: black;
   border: 1px solid black;
-  text-align: center;
+  text-align: left;
+  color: #BCC8CC;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:
+
 }
 
 h4 {
   text-align: right;
+  color: #EBFAFF;
+  margin-right: 10%;
 }
