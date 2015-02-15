@@ -31,6 +31,10 @@ section {
 
 }
 
+p {
+  text-indent: 50px;
+}
+
 h4 {
   text-align: right;
   color: #EBFAFF;
