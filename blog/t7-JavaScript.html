@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>
+  <title>Candice's DBC Blog</title>
+  <meta charset="UTF-8">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+</head>
+<img id="background" alt="background image" src="../imgs/background.png"/>
+<main>
+     <header>
+      <nav>
+          <ul>
+            <li><a href="http://cjhaddad.github.io/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Resume</a></li>
+            <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
+          </ul>
+      </nav>
+    </header>
+
+    <h1>"I'm Falsy!"</h1>
+    <h2>Falsiness and Truthiness is JavaScript and Ruby</h2>
+    <h4>March 22, 2015</h4>
+
+    <section>
+      <p>
+       The title of this blog post - "I'm Falsy!" -- can be sung to the tune of Kelis's "I'm Bossy!" I figured it was due time for another questionably awesome blog post title that references a fabulous song form the not-so-distant past (See my first post "Gettin' Gittu Wit It"). Kelis's "Bossy" begins with the lyrics: "You don't have to love me, you don't even have to like me. But you will respect me." Falsiness and truthiness in any language are kind of bossy, and so it seems pretty appropriate that this song popped into my head as I began to think of writing this post. And whether or not you love, like, or dislike the ways truthiness and falsiness work in JS or Ruby -- you got to respect them.
+      </p>
+      <img src="../imgs/kelisbossy.gif" align="right">
+      <p align="left">
+        So before we even dive into the differenes between truthiness and falsiness in Ruby and JavaScript. Let's talk about what the heck truthiness and falsiness even mean. Every variable has a boolean value, meaning every variable can be considered either true or false, even when it is not explicitly a boolean true or false value. Javascript and Ruby have some overlap in what kinds of values are considered true or false. Yet, they also have some differences. This is super important to understand, because control flow and various loops and such depend on a condition being either true or false. If you are providing a condition something that is considered false, when you want it to be considered true, you're going to run into some snags. That's why it's important to remember how truthiness and falsiness work in the language you are using. Since Ruby and JavaScript are the languages we're primarily learning at DBC, I'm focusing on these for now.
+      </p>
+      <p>
+        I think the clearest way to remember what values are truthy and what values are falsy are to focus what is considered falsy. Javascript has more values that are considered falsy, than Ruby does. In Ruby a <em>false</em> boolean value of course evaluates to false, but so does <em>nil</em>. These are the only two values that evaluate to false in Ruby.
+      </p>
+      <pre>
+        <code>
+          x = nil
+
+          if x == true
+            p "nil is true!"
+          else
+            p "nil is false!"
+          end
+
+          >> "nil is false!"
+        </code>
+      </pre>
+      <p>
+        In JavaScript there are number of other variable values that evaluate to false. One of the reasons I see this occuring is because JavaScript has more values in Ruby that stand for something that relates to the idea of being unknown, if you will. Ruby has <em>nil</em>, whereas JavaScript has <em>undefined</em>, <em>NaN</em> and <em>null</em> -- all of which evaluate to false, and are therefore considered falsy. A JavaScript variable is undefined when it is does not have a value. When a variable is undefined, the typeof variable it is is also undefined. This is important to note when you consider what <em>null</em> means. When a variable is null, it means it is "nothing." However, the typeof variable it is evaluates to being an object (See <a href="http://www.w3schools.com/js/js_typeof.asp">W3School</a>). The <em>NaN</em> value means not-a-number. All three of these values -- <em>undefined</em>, <em>null</em>, and <em>NaN</em> -- hold a falsy value and therefore evaluate to false in a boolean context.
+      </p>
+      <pre>
+        <code>
+          var x = null;
+          if (x){
+            console.log( x + " is Truthy!");
+          }
+          else{
+            console.log( x + " is Falsy!");
+          };
+          >> null is Falsy!
+
+
+          var y = undefined;
+          if (y){
+            console.log( y + " is Truthy!");
+          }
+          else{
+            console.log( y + " is Falsy!");
+          };
+          >> undefined is Falsy!
+
+
+          var z = NaN;
+          if (z){
+            console.log( z + " is Truthy!");
+          }
+          else{
+            console.log( z + " is Falsy!");
+          };
+          >> NaN is Falsy!
+        </code>
+      </pre>
+      <p>
+        In addition to <em>null</em>, <em>undefined</em>, and <em>NaN</em>, 0 and "" (an empty string) also evaluate to false in JavaScript. 0 and "" evaluate to true in Ruby -- so the boolean context of these two values is particularly helpful to remember.
+      </p>
+      <pre>
+        <code>
+           if (0){
+            console.log(" 0 is Truthy!");
+          }
+          else{
+            console.log( "0 is Falsy!");
+          };
+          >> 0 is Falsy!
+
+          if (""){
+            console.log("An empty string is Truthy!");
+          }
+          else{
+            console.log( "An empty string is Falsy!");
+          };
+          >> An empty string is Falsy!
+        </code>
+      </pre>
+      <pre>
+        <code>
+          x = ""
+          if x
+            p "An empty string is Truthy!"
+          else
+            p "An empty string is Falsy!"
+          end
+
+          >> An empty string is Truthy!
+
+
+          if 0
+            p "0 is Truthy!"
+          else
+            p "0 is Falsy!"
+          end
+
+          >> "0 is Truthy!"
+        </code>
+      </pre>
+      <p>
+        The code snippets above show how an empty string "" and 0 evaluate differently in JavaScript and Ruby. Similar differences in evaluations between various, as I'll call them, ambiguous values exist in other programming languages as well. To philosopher in me, I think this variety in how "truth" and "falsehood" are defined speaks to the subjectivity of truth. It's fun to see how this plays out in truthiness and falsiness in various languages.
+      </p>
+      <p>
+        Some References:
+      </p>
+      <p>
+        <a href="https://www.launchacademy.com/codecabulary/learn-ruby/truthy-and-falsy">https://www.launchacademy.com/codecabulary/learn-ruby/truthy-and-falsy</a>
+      </p>
+      <p>
+        <a href="https://gist.github.com/jfarmer/2647362">https://gist.github.com/jfarmer/2647362</a>
+      </p>
+      <p>
+        <a href="http://adripofjavascript.com/blog/drips/truthy-and-falsy-values-in-javascript.html">http://adripofjavascript.com/blog/drips/truthy-and-falsy-values-in-javascript.html</a>
+      </p>
+
+    </section>
+    <footer>
+      <h5>© Candice Haddad 2015</h5>
+      <ul>
+        <!-- insert mail, github, linkein, twitter imgs-->
+        <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!"><img alt="Mail" src="../imgs/mail_icon.png"></a></li>
+        <li><a href="http://www.linkedin.com/in/candicehaddad/en"><img alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
+        <li><a href="https://github.com/cjhaddad/"><img alt="GitHub" src="../imgs/github_icon.png"></a></li>
+        <li><a href="https://twitter.com/candicehaddad"><img alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
+      </ul>
+    </footer>
+</main>
+
