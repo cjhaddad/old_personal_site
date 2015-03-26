@@ -15,22 +15,22 @@
 
     <header>
 
-      <h1>Calvin's and Candice's Rails App Directory Cheat-Sheet</h1>
+      <h1>Calvin and Candice's Rails App Directory Cheat-Sheet</h1>
     </header>
+    <main>
+      <section>
+        <p>Rails is a web development framework that is written in the Ruby language.  The benefits of using this framework is that it greatly speeds up web development from prototyping to deployment.  The Rails sets up conventions that enable developers to implement a RESTful software architectural design.  Rails also creates a Agile approach to software development. </p>
 
-    <section>
-      <p>Rails is a web development framework that is written in the Ruby language.  The benefits of using this framework is that it greatly speeds up web development from prototyping to deployment.  The Rails sets up conventions that enable developers to implement a RESTful software architectural design.  Rails also creates a Agile approach to software development. </p>
+        <img src="imgs/mvc-rails.png" id="right">
 
-      <img src="imgs/mvc-rails.png" id="right">
+        <p>
+        One of the major conventions of Rails is creation of default directories for web applications.  In this cheat-sheet we will be focusing on the App directory. The App directory holds the Model-View-Controller subdirectories.
+        </p>
+      </section>
 
-      <p>
-      One of the major conventions of Rails is creation of default directories for web applications.  In this cheat-sheet we will be focusing on the App directory. The App directory holds the Model-View-Controller subdirectories.
-      </p>
-    </section>
-
-    <section>
-      <img src="imgs/rails_directories.png" id="left">
-      <p>Here are brief descriptions of the App directory and its subdiresctories (taken directly from <a href="http://www.tutorialspoint.com/ruby-on-rails/rails-directory-structure.htm">this tutorial):</a></p>
+      <section>
+        <img src="imgs/rails_directories.png" id="left">
+        <p>Here are brief descriptions of the App directory and its subdiresctories (taken directly from <a href="http://www.tutorialspoint.com/ruby-on-rails/rails-directory-structure.htm">this tutorial</a>):</p>
         <ul>
           <li><span class="emphasis">app: </span>This organizes your application components. It's got subdirectories that hold the view (views and helpers), controller (controllers), and the backend business logic (models).</li>
           <li><span class="emphasis">app/controllers:  </span> The controllers subdirectory is where Rails looks to find controller classes. A controller handles a web request from the user.</li>
@@ -39,7 +39,8 @@
           <li><span class="emphasis">app/view:</span> The views subdirectory holds the display templates to fill in with data from our application, convert to HTML, and return to the user's browser.</li>
           <li><span class="emphasis">app/view/layouts: </span> Holds the template files for layouts to be used with views. This models the common header/footer method of wrapping views. In your views, define a layout using the <tt>layout :default</tt> and create a file named default.rhtml. Inside default.rhtml, call <% yield %> to render the view using this layout.</li>
         </ul>
-    </section>
+      </section>
+    </main>
 
 
   </body>
