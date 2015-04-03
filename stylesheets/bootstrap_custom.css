@@ -1,0 +1,44 @@
+body {
+  margin-bottom: 50px;
+  background: none;
+}
+
+.full {
+  background: url(../imgs/background.png) no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.jumbotron {
+  background-color: transparent;
+  color: #EBFAFF;
+  text-shadow: 2px 2px black;
+  text-align: center;
+}
+
+.icon {
+  width: 65px;
+  height: 65px;
+}
+
+.navbar-default {
+  border: none;
+  background-color: transparent;
+}
+
+h5 {
+  margin-top: -15px;
+  float: left;
+  color: #A8A8A8;
+  text-shadow: 1px 1px black;
+}
+
+.footer {
+
+}
+
+a {
+  color: #BCC8CC;
+}

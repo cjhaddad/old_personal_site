@@ -1,75 +1,100 @@
 <!DOCTYPE html>
-<head>
-  <title>Candice's DBC Blog</title>
-  <meta charset="UTF-8">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
-  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
-</head>
-<img id="background" alt="background image" src="../imgs/background.png"/>
-<main>
-     <header>
-      <nav>
-          <ul>
-            <li><a href="http://cjhaddad.github.io/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Resume</a></li>
-            <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
-          </ul>
+<html class="full">
+ <head>
+    <title>Candice Haddad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_custom.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+  <div class="container-fluid">
+
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><!-- brand --></a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://cjhaddad.github.io/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Projects</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://cjhaddad.github.io/blog/blog_directory.html">Blog<span class="caret"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Cultural Posts</a></li>
+                  <li><a href="#">Tech Posts</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Resume</a></li>
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
-    </header>
 
-    <h1>Brief Intro to Regex</h1>
-    <h2><!-- insert subtitle --></h2>
-    <h4>March 27, 2015</h4>
+      <h1>Brief Intro to Regex</h1>
+      <h2><!-- insert subtitle --></h2>
+      <h4>March 27, 2015</h4>
 
-    <section>
-      <p>
-       Regular expressions are a super helpful tool to identify and search for a specific pattern within a string. Ruby, in addition to Perl and JavaScript, has built-in capabilities to use regular expression -- this means you do not need to use a standard library to utilize regular expressions(this is the case for C++, Python, and Java.). In Ruby you can create a regular expression -- regexp or regex -- by the /.../ and %r{...} literals or by using the <em>Regexp.new</em> constructor. You can use regular expressions to search for patterns to replace that pattern with another set of text or extract the pattern and save it to use for something else. There are tons of different scenarios where the use of regular expressions can help you.
-      </p>
-      <p>
-        When you create a regex, you use a mix between meta characters and regular characters to identify the string pattern for which you are searching. Meta-characters include: (,),[,],{,},.,?,+,*. A variety of methods are built into the Ruby Regexp Class and, therefore, can be called on your regex. The =~ operator works the same way as the #match does by looking for a match between a regex expression and a string. The return value when using the =~ operator is either nil, if no match is found, or the index of the first matching character. When using #match, a Match Data object is returned.
-      </p>
-      <pre>
-        <code>
-          >> my_regex = /pat/
-          >> my_string = "Does this have a pattern?"
+      <section>
+        <p>
+         Regular expressions are a super helpful tool to identify and search for a specific pattern within a string. Ruby, in addition to Perl and JavaScript, has built-in capabilities to use regular expression -- this means you do not need to use a standard library to utilize regular expressions(this is the case for C++, Python, and Java.). In Ruby you can create a regular expression -- regexp or regex -- by the /.../ and %r{...} literals or by using the <em>Regexp.new</em> constructor. You can use regular expressions to search for patterns to replace that pattern with another set of text or extract the pattern and save it to use for something else. There are tons of different scenarios where the use of regular expressions can help you.
+        </p>
+        <p>
+          When you create a regex, you use a mix between meta characters and regular characters to identify the string pattern for which you are searching. Meta-characters include: (,),[,],{,},.,?,+,*. A variety of methods are built into the Ruby Regexp Class and, therefore, can be called on your regex. The =~ operator works the same way as the #match does by looking for a match between a regex expression and a string. The return value when using the =~ operator is either nil, if no match is found, or the index of the first matching character. When using #match, a Match Data object is returned.
+        </p>
+        <pre>
+          <code>
+            >> my_regex = /pat/
+            >> my_string = "Does this have a pattern?"
 
-          >> my_regex =~ my_string
-            17
+            >> my_regex =~ my_string
+              17
 
-        >> my_regex.match(my_string)
-          #<MatchData "pat">
-        </code>
-      </pre>
-      <p>
-      Character classes can be inserted into a regular expression to allow you to find each of those characters separately or within a range, i.e. [agw] and [a-d]. Character classes are denoted by the square brackets []. I'll use #scan to illustrate how to extract characters from a string using regex.
-      </p>
-      <pre>
-        <code>
-          >> p "hello, is it me you're looking for?".scan(/[esr]/)
-            ["e", "s", "e", "r", "e", "r"]
-        </code>
-      </pre>
-      <p>
-        For more information on Ruby regex, check out <a href="http://ruby-doc.org/core-2.2.0/Regexp.html#method-c-compile">Ruby Documentation</a>Ruby Documentation and theses tutorials and sources:
-      </p>
-      <p>http://code.tutsplus.com/tutorials/ruby-for-newbies-regular-expressions--net-19812</p>
-      <p>http://ruby.bastardsbook.com/chapters/regexes/</p>
-      <p>http://rubular.com/</p>
-      <p>https://www.codeschool.com/screencasts/ruby-regex</p>
-      <p>http://regex.learncodethehardway.org/book/</p>
-    </section>
-    <footer>
-      <h5>© Candice Haddad 2015</h5>
-      <ul>
-        <!-- insert mail, github, linkein, twitter imgs-->
-        <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!"><img alt="Mail" src="../imgs/mail_icon.png"></a></li>
-        <li><a href="http://www.linkedin.com/in/candicehaddad/en"><img alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
-        <li><a href="https://github.com/cjhaddad/"><img alt="GitHub" src="../imgs/github_icon.png"></a></li>
-        <li><a href="https://twitter.com/candicehaddad"><img alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
-      </ul>
-    </footer>
-</main>
+          >> my_regex.match(my_string)
+            #<MatchData "pat">
+          </code>
+        </pre>
+        <p>
+        Character classes can be inserted into a regular expression to allow you to find each of those characters separately or within a range, i.e. [agw] and [a-d]. Character classes are denoted by the square brackets []. I'll use #scan to illustrate how to extract characters from a string using regex.
+        </p>
+        <pre>
+          <code>
+            >> p "hello, is it me you're looking for?".scan(/[esr]/)
+              ["e", "s", "e", "r", "e", "r"]
+          </code>
+        </pre>
+        <p>
+          For more information on Ruby regex, check out <a href="http://ruby-doc.org/core-2.2.0/Regexp.html#method-c-compile">Ruby Documentation</a>Ruby Documentation and theses tutorials and sources:
+        </p>
+        <p>http://code.tutsplus.com/tutorials/ruby-for-newbies-regular-expressions--net-19812</p>
+        <p>http://ruby.bastardsbook.com/chapters/regexes/</p>
+        <p>http://rubular.com/</p>
+        <p>https://www.codeschool.com/screencasts/ruby-regex</p>
+        <p>http://regex.learncodethehardway.org/book/</p>
+      </section>
+
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!" target="_blank"><img class="icon" alt="Mail" src="../imgs/mail_icon.png"></a></li>
+              <li><a href="http://www.linkedin.com/in/candicehaddad/en" target="_blank"><img class="icon" alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
+              <li><a href="https://github.com/cjhaddad/" target="_blank"><img class="icon" alt="GitHub" src="../imgs/github_icon.png"></a></li>
+              <li><a href="https://twitter.com/candicehaddad" target="_blank"><img class="icon" alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
+            </ul>
+          </div>
+          <h5 id="footer">© Candice Haddad 2015</h5>
+        </div>
+      </nav>
+
+    </div>
+  </body>
+</html>
 

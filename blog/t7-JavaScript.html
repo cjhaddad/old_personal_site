@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<head>
-  <title>Candice's DBC Blog</title>
-  <meta charset="UTF-8">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
-  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
-</head>
-<img id="background" alt="background image" src="../imgs/background.png"/>
-<main>
-     <header>
-      <nav>
-          <ul>
-            <li><a href="http://cjhaddad.github.io/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Resume</a></li>
-            <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
-          </ul>
-      </nav>
-    </header>
+<html class="full">
+ <head>
+    <title>Candice Haddad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_custom.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
 
-    <h1>"I'm Falsy!"</h1>
-    <h2>Falsiness and Truthiness is JavaScript and Ruby</h2>
+<body>
+  <div class="container-fluid">
+
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><!-- brand --></a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://cjhaddad.github.io/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Projects</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://cjhaddad.github.io/blog/blog_directory.html">Blog<span class="caret"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Cultural Posts</a></li>
+                  <li><a href="#">Tech Posts</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Resume</a></li>
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <h1>"I'm Falsy!"</h1>
+    <h2>Falsiness and Truthiness in JavaScript and Ruby</h2>
     <h4>March 22, 2015</h4>
 
     <section>
       <p>
-       The title of this blog post - "I'm Falsy!" -- can be sung to the tune of Kelis's "I'm Bossy!" I figured it was due time for another questionably awesome blog post title that references a fabulous song from the not-so-distant past (See my first post <a href="http://cjhaddad.github.io/blog/t1-git-blog.html">"Gettin' Gitty Wit It"</a>). Kelis's "Bossy" begins with the lyrics: "You don't have to love me, you don't even have to like me. But you will respect me." Falsiness and truthiness in any language are kind of bossy, and so it seems pretty appropriate that this song popped into my head as I began to think of writing this post. And whether or not you love, like, or dislike the ways truthiness and falsiness work in JS or Ruby -- you got to respect them.
+       The title of this blog post - "I'm Falsy!" -- can be sung to the tune of Kelis's "I'm Bossy!" I figured it was due time for another questionably awesome blog post title that references a fabulous song from the not-so-distant past (See my first post <a href="http://cjhaddad.github.io/blog/t1-git-blog.html">"Gettin' Gitty Wit It"</a>). Kelis's "Bossy" begins with the lyrics: "You don't have to love me, you don't even have to like me. But you will respect me." Falsiness and truthiness in any language are kind of bossy, and so it seems pretty appropriate that this song popped into my head as I began to think of writing this post. And whether or not you love, like, or dislike the ways truthiness and falsiness work in JS or Ruby -- you must respect them.
       </p>
       <img src="../imgs/kelisbossy.gif" align="right">
       <p align="left">
@@ -143,15 +161,22 @@
       </p>
 
     </section>
-    <footer>
-      <h5>© Candice Haddad 2015</h5>
-      <ul>
-        <!-- insert mail, github, linkein, twitter imgs-->
-        <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!"><img alt="Mail" src="../imgs/mail_icon.png"></a></li>
-        <li><a href="http://www.linkedin.com/in/candicehaddad/en"><img alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
-        <li><a href="https://github.com/cjhaddad/"><img alt="GitHub" src="../imgs/github_icon.png"></a></li>
-        <li><a href="https://twitter.com/candicehaddad"><img alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
-      </ul>
-    </footer>
-</main>
+
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!" target="_blank"><img class="icon" alt="Mail" src="../imgs/mail_icon.png"></a></li>
+              <li><a href="http://www.linkedin.com/in/candicehaddad/en" target="_blank"><img class="icon" alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
+              <li><a href="https://github.com/cjhaddad/" target="_blank"><img class="icon" alt="GitHub" src="../imgs/github_icon.png"></a></li>
+              <li><a href="https://twitter.com/candicehaddad" target="_blank"><img class="icon" alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
+            </ul>
+          </div>
+          <h5 id="footer">© Candice Haddad 2015</h5>
+        </div>
+      </nav>
+
+    </div>
+  </body>
+</html>
 

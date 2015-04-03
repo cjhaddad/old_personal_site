@@ -1,176 +1,200 @@
 <!DOCTYPE html>
-<head>
-  <title>Candice's DBC Blog</title>
-  <meta charset="UTF-8">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
-  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
-</head>
-<img id="background" alt="background image" src="../imgs/background.png"/>
-<main>
-     <header>
-      <nav>
-          <ul>
-            <li><a href="http://cjhaddad.github.io/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Resume</a></li>
-            <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
-          </ul>
+<html class="full">
+ <head>
+    <title>Candice Haddad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_custom.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+  <div class="container-fluid">
+
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><!-- brand --></a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://cjhaddad.github.io/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Projects</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://cjhaddad.github.io/blog/blog_directory.html">Blog<span class="caret"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Cultural Posts</a></li>
+                  <li><a href="#">Tech Posts</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Resume</a></li>
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
-    </header>
 
-    <h1>Enumerables! Specifically! The Cycle Method!</h1>
-    <h2></h2>
-    <h4>February 27, 2015</h4>
+      <h1>Enumerables! Specifically! The Cycle Method!</h1>
+      <h2></h2>
+      <h4>February 27, 2015</h4>
 
-    <section>
-      <p>
-       The Enumerable module is a required module for collection objects (e.g.,hashes, arrays, ranges). Enumerable methods build upon the each method to iterate over a collection object in multiple ways. For a quick reference to see what methods are included in the Enumerable model, run this code:
-        <pre>
-          <code>
-            Enumerable.instance_methods.sort
-          </code>
-        </pre>
-        You'll see the following returned:
-        <pre>
-          <code>
-                        [
-                [ 0] :all?,
-                [ 1] :any?,
-                [ 2] :chunk,
-                [ 3] :collect,
-                [ 4] :collect_concat,
-                [ 5] :count,
-                [ 6] :cycle,
-                [ 7] :detect,
-                [ 8] :drop,
-                [ 9] :drop_while,
-                [10] :each_cons,
-                [11] :each_entry,
-                [12] :each_slice,
-                [13] :each_with_index,
-                [14] :each_with_object,
-                [15] :entries,
-                [16] :find,
-                [17] :find_all,
-                [18] :find_index,
-                [19] :first,
-                [20] :flat_map,
-                [21] :grep,
-                [22] :group_by,
-                [23] :include?,
-                [24] :inject,
-                [25] :lazy,
-                [26] :map,
-                [27] :max,
-                [28] :max_by,
-                [29] :member?,
-                [30] :min,
-                [31] :min_by,
-                [32] :minmax,
-                [33] :minmax_by,
-                [34] :none?,
-                [35] :one?,
-                [36] :partition,
-                [37] :reduce,
-                [38] :reject,
-                [39] :reverse_each,
-                [40] :select,
-                [41] :slice_before,
-                [42] :sort,
-                [43] :sort_by,
-                [44] :take,
-                [45] :take_while,
-                [46] :to_a,
-                [47] :zip
-            ]
-          </code>
-        </pre>
-      Boom! 48 methods for your viewing and using pleasure (sorted alphabetically)!
-      </p>
-      <p>
-        Let's focus on the Enumerable#cycle method. Simply put the #cycle method offers you the ability to cycle through your collection object for however many times you ask it. If you don't tell the method how many times to cycle through the object, it will run forever. The #cycle method will return an Enumerator if you do not give it a code block. With a code block it will return nil and execute whatever you tell it to execute in the code block. Here's an example of what you'll see when an Enumerator is returned:
-        <pre>
-          <code>
-            array = ["apples", "oranges", "bananas"]
+      <section>
+        <p>
+         The Enumerable module is a required module for collection objects (e.g.,hashes, arrays, ranges). Enumerable methods build upon the each method to iterate over a collection object in multiple ways. For a quick reference to see what methods are included in the Enumerable model, run this code:
+          <pre>
+            <code>
+              Enumerable.instance_methods.sort
+            </code>
+          </pre>
+          You'll see the following returned:
+          <pre>
+            <code>
+                          [
+                  [ 0] :all?,
+                  [ 1] :any?,
+                  [ 2] :chunk,
+                  [ 3] :collect,
+                  [ 4] :collect_concat,
+                  [ 5] :count,
+                  [ 6] :cycle,
+                  [ 7] :detect,
+                  [ 8] :drop,
+                  [ 9] :drop_while,
+                  [10] :each_cons,
+                  [11] :each_entry,
+                  [12] :each_slice,
+                  [13] :each_with_index,
+                  [14] :each_with_object,
+                  [15] :entries,
+                  [16] :find,
+                  [17] :find_all,
+                  [18] :find_index,
+                  [19] :first,
+                  [20] :flat_map,
+                  [21] :grep,
+                  [22] :group_by,
+                  [23] :include?,
+                  [24] :inject,
+                  [25] :lazy,
+                  [26] :map,
+                  [27] :max,
+                  [28] :max_by,
+                  [29] :member?,
+                  [30] :min,
+                  [31] :min_by,
+                  [32] :minmax,
+                  [33] :minmax_by,
+                  [34] :none?,
+                  [35] :one?,
+                  [36] :partition,
+                  [37] :reduce,
+                  [38] :reject,
+                  [39] :reverse_each,
+                  [40] :select,
+                  [41] :slice_before,
+                  [42] :sort,
+                  [43] :sort_by,
+                  [44] :take,
+                  [45] :take_while,
+                  [46] :to_a,
+                  [47] :zip
+              ]
+            </code>
+          </pre>
+        Boom! 48 methods for your viewing and using pleasure (sorted alphabetically)!
+        </p>
+        <p>
+          Let's focus on the Enumerable#cycle method. Simply put the #cycle method offers you the ability to cycle through your collection object for however many times you ask it. If you don't tell the method how many times to cycle through the object, it will run forever. The #cycle method will return an Enumerator if you do not give it a code block. With a code block it will return nil and execute whatever you tell it to execute in the code block. Here's an example of what you'll see when an Enumerator is returned:
+          <pre>
+            <code>
+              array = ["apples", "oranges", "bananas"]
 
-            array.cycle(3)
-           &#60;Enumerator: ["apples", "oranges", "bananas"]:cycle(3)&#62;
-          </code>
-        </pre>
-        And here's what you'll see when you run it with a code block:
-        <pre>
-          <code>
-            array.cycle(3){|x| puts x }
-              apples
-              oranges
-              bananas
-              apples
-              oranges
-              bananas
-              apples
-              oranges
-              bananas
-              nil
-          </code>
-        </pre>
-        Above you can see how because the code block 'puts x' 3 times, the array outputs three times and then returns nil.
-      </p>
-      <p>
-        A cool technique to use is to store a collection object with the #cycle method called upon it in a variable. This allows you to cycle through your collection object as needed by using the #next method and iterating through it however many times. Here's an example of a program that implements these ideas to illustrate:
-        <pre>
-          <code>
-            school_days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-            days = school_days.cycle
+              array.cycle(3)
+             &#60;Enumerator: ["apples", "oranges", "bananas"]:cycle(3)&#62;
+            </code>
+          </pre>
+          And here's what you'll see when you run it with a code block:
+          <pre>
+            <code>
+              array.cycle(3){|x| puts x }
+                apples
+                oranges
+                bananas
+                apples
+                oranges
+                bananas
+                apples
+                oranges
+                bananas
+                nil
+            </code>
+          </pre>
+          Above you can see how because the code block 'puts x' 3 times, the array outputs three times and then returns nil.
+        </p>
+        <p>
+          A cool technique to use is to store a collection object with the #cycle method called upon it in a variable. This allows you to cycle through your collection object as needed by using the #next method and iterating through it however many times. Here's an example of a program that implements these ideas to illustrate:
+          <pre>
+            <code>
+              school_days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+              days = school_days.cycle
 
-            activities = ["volleyball", "dodgeball", "basketball", "capture the flag"]
-            gym_activities = activities.cycle
+              activities = ["volleyball", "dodgeball", "basketball", "capture the flag"]
+              gym_activities = activities.cycle
 
-            10.times do
-              day = days.next
-              activity = gym_activities.next
+              10.times do
+                day = days.next
+                activity = gym_activities.next
 
-              puts "On #{day} 5th graders will play #{activity}."
+                puts "On #{day} 5th graders will play #{activity}."
 
-            end
-          </code>
-        </pre>
-        The code above will print out a list of activities for two weeks worth of an activity schedule. Where the focus is on playing four different games. Here's the output:
-        <pre>
-          <code>
-            On Monday 5th graders will play volleyball.
-            On Tuesday 5th graders will play dodgeball.
-            On Wednesday 5th graders will play basketball.
-            On Thursday 5th graders will play capture the flag.
-            On Friday 5th graders will play volleyball.
-            On Monday 5th graders will play dodgeball.
-            On Tuesday 5th graders will play basketball.
-            On Wednesday 5th graders will play capture the flag.
-            On Thursday 5th graders will play volleyball.
-            On Friday 5th graders will play dodgeball.
-          </code>
-        </pre>
-      </p>
-      <p>
-        Cool! So, now this 5th grade class has an activity schedule for the next two weeks!
-      </p>
-      <p></p>
-      <p>
-        Resources:
-      </p>
-      <p><a href="http://www.globalnerdy.com/2008/07/06/enumerating-enumerable-enumerablecycle/">http://www.globalnerdy.com/2008/07/06/enumerating-enumerable-enumerablecycle/</a></p>
-      <p>Black, David A. <em>The Well-Grounded Rubyist</em> pg. 286-328</p>
-    </section>
-    <footer>
-      <h5>© Candice Haddad 2015</h5>
-      <ul>
-        <!-- insert mail, github, linkein, twitter imgs-->
-        <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!"><img alt="Mail" src="../imgs/mail_icon.png"></a></li>
-        <li><a href="http://www.linkedin.com/in/candicehaddad/en"><img alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
-        <li><a href="https://github.com/cjhaddad/"><img alt="GitHub" src="../imgs/github_icon.png"></a></li>
-        <li><a href="https://twitter.com/candicehaddad"><img alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
-      </ul>
-    </footer>
-</main>
+              end
+            </code>
+          </pre>
+          The code above will print out a list of activities for two weeks worth of an activity schedule. Where the focus is on playing four different games. Here's the output:
+          <pre>
+            <code>
+              On Monday 5th graders will play volleyball.
+              On Tuesday 5th graders will play dodgeball.
+              On Wednesday 5th graders will play basketball.
+              On Thursday 5th graders will play capture the flag.
+              On Friday 5th graders will play volleyball.
+              On Monday 5th graders will play dodgeball.
+              On Tuesday 5th graders will play basketball.
+              On Wednesday 5th graders will play capture the flag.
+              On Thursday 5th graders will play volleyball.
+              On Friday 5th graders will play dodgeball.
+            </code>
+          </pre>
+        </p>
+        <p>
+          Cool! So, now this 5th grade class has an activity schedule for the next two weeks!
+        </p>
+        <p></p>
+        <p>
+          Resources:
+        </p>
+        <p><a href="http://www.globalnerdy.com/2008/07/06/enumerating-enumerable-enumerablecycle/">http://www.globalnerdy.com/2008/07/06/enumerating-enumerable-enumerablecycle/</a></p>
+        <p>Black, David A. <em>The Well-Grounded Rubyist</em> pg. 286-328</p>
+      </section>
 
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!" target="_blank"><img class="icon" alt="Mail" src="../imgs/mail_icon.png"></a></li>
+              <li><a href="http://www.linkedin.com/in/candicehaddad/en" target="_blank"><img class="icon" alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
+              <li><a href="https://github.com/cjhaddad/" target="_blank"><img class="icon" alt="GitHub" src="../imgs/github_icon.png"></a></li>
+              <li><a href="https://twitter.com/candicehaddad" target="_blank"><img class="icon" alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
+            </ul>
+          </div>
+          <h5 id="footer">© Candice Haddad 2015</h5>
+        </div>
+      </nav>
+
+    </div>
+  </body>
+</html>

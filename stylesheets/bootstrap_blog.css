@@ -1,0 +1,41 @@
+/*main {
+  margin: 0 0 0 0;
+}*/
+
+h1 {
+  margin: 1em auto 2em auto;
+  text-align: center;
+  color: #EBFAFF;
+  max-height: 10px;
+  text-shadow: 1px 1px black;
+}
+
+h2 {
+  text-align: center;
+  font-style: bold;
+  font-family: 'Josefin Slab', serif;
+  margin: 0 auto auto auto;
+  color: #EBFAFF;
+}
+
+section {
+  margin: auto 10% auto 10%;
+  padding: 2em;
+  background-color: black;
+  border: 1px solid black;
+  text-align: left;
+  color: #BCC8CC;
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+p {
+  text-indent: 50px;
+}
+
+h4 {
+  text-align: right;
+  color: #EBFAFF;
+  margin-right: 10%;
+  text-shadow: 1px 1px black;
+}

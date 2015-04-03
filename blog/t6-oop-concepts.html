@@ -1,172 +1,198 @@
 <!DOCTYPE html>
-<head>
-  <title>Candice's DBC Blog</title>
-  <meta charset="UTF-8">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
-  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
-</head>
-<img id="background" alt="background image" src="../imgs/background.png"/>
-<main>
-     <header>
-      <nav>
-          <ul>
-            <li><a href="http://cjhaddad.github.io/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Resume</a></li>
-            <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
-          </ul>
+<html class="full">
+ <head>
+    <title>Candice Haddad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_custom.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+  <div class="container-fluid">
+
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><!-- brand --></a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://cjhaddad.github.io/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Projects</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://cjhaddad.github.io/blog/blog_directory.html">Blog<span class="caret"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Cultural Posts</a></li>
+                  <li><a href="#">Tech Posts</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Resume</a></li>
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
-    </header>
 
-    <h1>Blocs, Procs, and Lambdas!</h1>
-    <h2><!-- insert subtitle --></h2>
-    <h4>March 15, 2015</h4>
+      <h1>Blocs, Procs, and Lambdas!</h1>
+      <h2><!-- insert subtitle --></h2>
+      <h4>March 15, 2015</h4>
 
-    <section>
-      <p>
-       Ruby blocks are a fundemental aspect of the Ruby programming language. Blocks are a chunk of code denoted by the <do> and <end> or curly braces {}. Blocks are not objects or variables. We see blocks all the time being used as part of method syntax:
-      </p>
-      <pre>
-        <code>
-          ["b","d","f"].each { |x| p "Letter: #{x}" }
-        </code>
-      </pre>
-      <p>
-      One way to create a method that uses a block is to work with the yield statement to pass it a block:
-      </p>
-      <pre>
-        <code>
-          def block_test
-            puts "Hi, this is from the method!"
-            yield
-            puts "Hello, again, from the method!"
-          end
+      <section>
+        <p>
+         Ruby blocks are a fundemental aspect of the Ruby programming language. Blocks are a chunk of code denoted by the <do> and <end> or curly braces {}. Blocks are not objects or variables. We see blocks all the time being used as part of method syntax:
+        </p>
+        <pre>
+          <code>
+            ["b","d","f"].each { |x| p "Letter: #{x}" }
+          </code>
+        </pre>
+        <p>
+        One way to create a method that uses a block is to work with the yield statement to pass it a block:
+        </p>
+        <pre>
+          <code>
+            def block_test
+              puts "Hi, this is from the method!"
+              yield
+              puts "Hello, again, from the method!"
+            end
 
-          block_test { puts "Hello from the block!"}
+            block_test { puts "Hello from the block!"}
 
-          Hi, this is from the method!
-          Hello from the block!
-          Hello, again, from the method!
-        </code>
-      </pre>
-      <p>
-        The output of the block_test method shows how the yield statement inserts the code block into the method, when you call the method with a code block. The same method can be rewritten and output the same thing by inserting a block as an argument to the block_test method. You use the & sign to do this:
-      </p>
-     <pre>
-        <code>
-          def block_test(&block)
-            puts "Hi, this is from the method!"
-            block.call
-            puts "Hello, again, from the method!"
-          end
+            Hi, this is from the method!
+            Hello from the block!
+            Hello, again, from the method!
+          </code>
+        </pre>
+        <p>
+          The output of the block_test method shows how the yield statement inserts the code block into the method, when you call the method with a code block. The same method can be rewritten and output the same thing by inserting a block as an argument to the block_test method. You use the & sign to do this:
+        </p>
+       <pre>
+          <code>
+            def block_test(&block)
+              puts "Hi, this is from the method!"
+              block.call
+              puts "Hello, again, from the method!"
+            end
 
-          block_test { puts "Hello from the block!"}
+            block_test { puts "Hello from the block!"}
 
-          Hi, this is from the method!
-          Hello from the block!
-          Hello, again, from the method!
-        </code>
-      </pre>
-      <p> The output for this method that use &block as a parameter is the same as the one above that uses the yield statement. By using the call method on block, we are able to pass a piece of code into this method. It's important to keep in mind that a block parameter can only be used once in a method's argument list.
-      </p>
-      <p>
-        Unlike blocks, Procs are objects, specifically a class object, and are able to store a chunk of code that can be used over and over again. Because Procs are objects you can store them in a variable and call methods on it.
-      </p>
-      <pre>
-        <code>
-          example_proc = Proc.new {puts "This is my example proc!"}
-          example_proc.call
+            Hi, this is from the method!
+            Hello from the block!
+            Hello, again, from the method!
+          </code>
+        </pre>
+        <p> The output for this method that use &block as a parameter is the same as the one above that uses the yield statement. By using the call method on block, we are able to pass a piece of code into this method. It's important to keep in mind that a block parameter can only be used once in a method's argument list.
+        </p>
+        <p>
+          Unlike blocks, Procs are objects, specifically a class object, and are able to store a chunk of code that can be used over and over again. Because Procs are objects you can store them in a variable and call methods on it.
+        </p>
+        <pre>
+          <code>
+            example_proc = Proc.new {puts "This is my example proc!"}
+            example_proc.call
 
-          This is my example proc!
-        </code>
-      </pre>
-      <p>
-        I can use this example_proc variable as an argument in a method:
-      </p>
-      <pre>
-        <code>
-          def a_method(proc)
-            proc.call
-          end
+            This is my example proc!
+          </code>
+        </pre>
+        <p>
+          I can use this example_proc variable as an argument in a method:
+        </p>
+        <pre>
+          <code>
+            def a_method(proc)
+              proc.call
+            end
 
-          example_proc = Proc.new {puts "This is my example proc!"}
+            example_proc = Proc.new {puts "This is my example proc!"}
 
-          a_method(example_proc)
+            a_method(example_proc)
 
-          This is my example proc!
-        </code>
-      </pre>
-      <p>
-       Lambdas are a type of Proc, but they differ in two primary ways. First, Lambdas require the exact number of arguments within it to be passed to it, when it is called, whereas Procs do not care how many arguments you pass to it. Procs can be passed zero arguments, even when it has arguments within it. If you try to call a Lambda without a needed argument, you will get an error. If you call a Proc without an argument, no error will occur.
-      </p>
-      <pre>
-        <code>
-          lambda_var = lambda { |x, y| puts "#{x} plus #{y} equals #{x + y}" }
+            This is my example proc!
+          </code>
+        </pre>
+        <p>
+         Lambdas are a type of Proc, but they differ in two primary ways. First, Lambdas require the exact number of arguments within it to be passed to it, when it is called, whereas Procs do not care how many arguments you pass to it. Procs can be passed zero arguments, even when it has arguments within it. If you try to call a Lambda without a needed argument, you will get an error. If you call a Proc without an argument, no error will occur.
+        </p>
+        <pre>
+          <code>
+            lambda_var = lambda { |x, y| puts "#{x} plus #{y} equals #{x + y}" }
 
-          lambda_var.call
-          lambda_var.call(7, 3)
+            lambda_var.call
+            lambda_var.call(7, 3)
 
-          ArgumentError: wrong number of arguments (0 for 2)
-          7 plus 3 equals 10
-        </code>
-      </pre>
-      <p>
-        The first call to lambda_var returns an ArgumentError. The second call returns the string with the 7 and 3 arguments passed through correctly.
-      </p>
-       <code>
-          proc_var = Proc.new {  |x, y| puts "#{x} and #{y} are numbers" }
+            ArgumentError: wrong number of arguments (0 for 2)
+            7 plus 3 equals 10
+          </code>
+        </pre>
+        <p>
+          The first call to lambda_var returns an ArgumentError. The second call returns the string with the 7 and 3 arguments passed through correctly.
+        </p>
+        <pre>
+         <code>
+            proc_var = Proc.new {  |x, y| puts "#{x} and #{y} are numbers" }
 
-          proc_var.call
-          proc_var.call(4,5,6)
-          proc_var.call(1)
+            proc_var.call
+            proc_var.call(4,5,6)
+            proc_var.call(1)
 
-           and  are numbers
-           4 and 5 are numbers
-           1 and  are numbers
-        </code>
-      </pre>
-      <p>
-        As we can see from the output above, Procs do not throw up and error is the incorrect number of arguments are passed. In our example we see how a Proc leaves the space where the arugument would be either blank if there aren't enough arguments or drops off any extra arguments.
-      </p>
-      <p>
-        The second primary way Lambdas and Procs differ is how they use return in a method. For example:
-      </p>
-      <pre>
-        <code>
-          def proc_return
-            p = Proc.new {return "Hi!"}
-            p.call
-            return "What's up?!"
-          end
+             and  are numbers
+             4 and 5 are numbers
+             1 and  are numbers
+          </code>
+        </pre>
+        <p>
+          As we can see from the output above, Procs do not throw up and error is the incorrect number of arguments are passed. In our example we see how a Proc leaves the space where the arugument would be either blank if there aren't enough arguments or drops off any extra arguments.
+        </p>
+        <p>
+          The second primary way Lambdas and Procs differ is how they use return in a method. For example:
+        </p>
+        <pre>
+          <code>
+            def proc_return
+              p = Proc.new {return "Hi!"}
+              p.call
+              return "What's up?!"
+            end
 
-          def lam_return
-            l = lambda {return "Hi!"}
-            l.call
-            return "What's up?!"
-          end
+            def lam_return
+              l = lambda {return "Hi!"}
+              l.call
+              return "What's up?!"
+            end
 
-          proc_return
-          "Hi!"
+            proc_return
+            "Hi!"
 
-          lam_return
-          "What's up?!"
-        </code>
-      </pre>
-      <p>
-        Above I created two methods that are identical in almost every way except the first use a Proc and the second uses a Lambda. When each of the methods is called, we see how the return works differently in a method that uses either a Proc or a Lambda. For a Proc the return value is what is inside of the Proc's code block. For a Lambda the return value is the last line of the method. The method that uses the Lambda skips returning value in the Lambda code block and instead returns the value of the method.
-      </p>
-    </section>
-    <footer>
-      <h5>© Candice Haddad 2015</h5>
-      <ul>
-        <!-- insert mail, github, linkein, twitter imgs-->
-        <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!"><img alt="Mail" src="../imgs/mail_icon.png"></a></li>
-        <li><a href="http://www.linkedin.com/in/candicehaddad/en"><img alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
-        <li><a href="https://github.com/cjhaddad/"><img alt="GitHub" src="../imgs/github_icon.png"></a></li>
-        <li><a href="https://twitter.com/candicehaddad"><img alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
-      </ul>
-    </footer>
-</main>
+            lam_return
+            "What's up?!"
+          </code>
+        </pre>
+        <p>
+          Above I created two methods that are identical in almost every way except the first use a Proc and the second uses a Lambda. When each of the methods is called, we see how the return works differently in a method that uses either a Proc or a Lambda. For a Proc the return value is what is inside of the Proc's code block. For a Lambda the return value is the last line of the method. The method that uses the Lambda skips returning value in the Lambda code block and instead returns the value of the method.
+        </p>
+      </section>
+
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!" target="_blank"><img class="icon" alt="Mail" src="../imgs/mail_icon.png"></a></li>
+              <li><a href="http://www.linkedin.com/in/candicehaddad/en" target="_blank"><img class="icon" alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
+              <li><a href="https://github.com/cjhaddad/" target="_blank"><img class="icon" alt="GitHub" src="../imgs/github_icon.png"></a></li>
+              <li><a href="https://twitter.com/candicehaddad" target="_blank"><img class="icon" alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
+            </ul>
+          </div>
+          <h5 id="footer">© Candice Haddad 2015</h5>
+        </div>
+      </nav>
+
+    </div>
+  </body>
+</html>
 

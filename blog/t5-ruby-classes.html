@@ -1,154 +1,179 @@
 <!DOCTYPE html>
-<head>
-  <title>Candice's DBC Blog</title>
-  <meta charset="UTF-8">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
-  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
-</head>
-<img id="background" alt="background image" src="../imgs/background.png"/>
-<main>
-     <header>
-      <nav>
-          <ul>
-            <li><a href="http://cjhaddad.github.io/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Resume</a></li>
-            <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
-          </ul>
+<html class="full">
+ <head>
+    <title>Candice Haddad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_custom.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+  <div class="container-fluid">
+
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><!-- brand --></a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://cjhaddad.github.io/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Projects</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://cjhaddad.github.io/blog/blog_directory.html">Blog<span class="caret"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Cultural Posts</a></li>
+                  <li><a href="#">Tech Posts</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Resume</a></li>
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
-    </header>
 
-    <h1>Ruby Classes as Blueprints</h1>
-    <h2>Turning IRL Things into Ruby Objects</h2>
-    <h4>March 8, 2015</h4>
+      <h1>Ruby Classes as Blueprints</h1>
+      <h2>Turning IRL Things into Ruby Objects</h2>
+      <h4>March 8, 2015</h4>
 
-    <section>
-      <p>
-       Classes are a type of object in Ruby that I have heard/ read many people describe as blueprints. Classes are the blueprint, skeletons, foundations, etc. used to create objects that in essence fall into a similar category or profile. The variable types we use so often in Ruby, such as strings, arrays, hashes, integers, etc., all belong to those respective classes. When I create a new string variable, for example <em>dog = "Rufus"</em>, I am creating an <em>instance</em> of the string class. When I create my own class and then create specific instances of that class, I am going through this same <em>instatiating</em> process. Let's work through an example to understand this idea and explore other aspects of Ruby classes. Below are the beginning lines of code for a class I am naming UniversityCourse.
-      </p>
-      <p>
-        <pre>
-          <code>
-            class UniversityCourse
-              def initialize(title, instructor, department, number)
-                @title = title
-                @instructor = instructor
-                @department = department
-                @number = number
+      <section>
+        <p>
+         Classes are a type of object in Ruby that I have heard/ read many people describe as blueprints. Classes are the blueprint, skeletons, foundations, etc. used to create objects that in essence fall into a similar category or profile. The variable types we use so often in Ruby, such as strings, arrays, hashes, integers, etc., all belong to those respective classes. When I create a new string variable, for example <em>dog = "Rufus"</em>, I am creating an <em>instance</em> of the string class. When I create my own class and then create specific instances of that class, I am going through this same <em>instatiating</em> process. Let's work through an example to understand this idea and explore other aspects of Ruby classes. Below are the beginning lines of code for a class I am naming UniversityCourse.
+        </p>
+        <p>
+          <pre>
+            <code>
+              class UniversityCourse
+                def initialize(title, instructor, department, number)
+                  @title = title
+                  @instructor = instructor
+                  @department = department
+                  @number = number
+                end
               end
-            end
-          </code>
-        </pre>
-      </p>
-      <p>
-        In the code above, you can see that the first method I created is the initialized method. The initialize method is called upon the creation of a new instance of this class. When I create a new instance of this class, I will be required to pass four arguments, which are then set a class variables, denoted by the @ sign. In this example I am creating title, instructor, department, and number class variables at the onset. Therefore, the instantiation of this class will look like this:
-      </p>
-      <p>
-        <pre>
-          <code>
-            course1 = UniversityCourse.new("Internet Cultures", "Dr. Byte", "Communication and Information Department", 023431)
-          </code>
-        </pre>
-      </p>
-      <p>
-        The creation of these four class variables at the onset allow them to be accessible to any method in the class. Broadening their scope and accessibility is super helpful when you create methods in a class that work together and often use the same information. That said, adding "getters" and "setters" will be the next step in setting up our class. "Getters" refer to a shortcut way of creating a method in a class that simply returns the value of a class variable. "Setters" refer to a shortcut way or creating a method in a class that allows you to change the value of a set variable.
-      </p>
-      <p>
-        <pre>
-          <code>
-            class UniversityCourse
-              attr_reader :title, :instructor, :department, :number
-              attr_writer :title
+            </code>
+          </pre>
+        </p>
+        <p>
+          In the code above, you can see that the first method I created is the initialized method. The initialize method is called upon the creation of a new instance of this class. When I create a new instance of this class, I will be required to pass four arguments, which are then set a class variables, denoted by the @ sign. In this example I am creating title, instructor, department, and number class variables at the onset. Therefore, the instantiation of this class will look like this:
+        </p>
+        <p>
+          <pre>
+            <code>
+              course1 = UniversityCourse.new("Internet Cultures", "Dr. Byte", "Communication and Information Department", 023431)
+            </code>
+          </pre>
+        </p>
+        <p>
+          The creation of these four class variables at the onset allow them to be accessible to any method in the class. Broadening their scope and accessibility is super helpful when you create methods in a class that work together and often use the same information. That said, adding "getters" and "setters" will be the next step in setting up our class. "Getters" refer to a shortcut way of creating a method in a class that simply returns the value of a class variable. "Setters" refer to a shortcut way or creating a method in a class that allows you to change the value of a set variable.
+        </p>
+        <p>
+          <pre>
+            <code>
+              class UniversityCourse
+                attr_reader :title, :instructor, :department, :number
+                attr_writer :title
 
-              def initialize(title, instructor, department, number)
-                @title = title
-                @instructor = instructor
-                @department = department
-                @number = number
+                def initialize(title, instructor, department, number)
+                  @title = title
+                  @instructor = instructor
+                  @department = department
+                  @number = number
+                end
               end
-            end
-          </code>
-        </pre>
-      </p>
-      <p>
-        In this code we see title showing up as both a "reader" and a "writer," because, let's say, instructors have the ability to change the name of their courses up until a week before the course begins. In this case we can use the attr_accessor shortcut for title. The attr_accessor shortcut creates a method for that variable that allows it to both be "read" back and to be "rewritten," or given a new value.
-      </p>
-      <p>
-        <pre>
-          <code>
-             class UniversityCourse
-              attr_reader :title, :instructor, :department, :number
-              attr_accessor :title
+            </code>
+          </pre>
+        </p>
+        <p>
+          In this code we see title showing up as both a "reader" and a "writer," because, let's say, instructors have the ability to change the name of their courses up until a week before the course begins. In this case we can use the attr_accessor shortcut for title. The attr_accessor shortcut creates a method for that variable that allows it to both be "read" back and to be "rewritten," or given a new value.
+        </p>
+        <p>
+          <pre>
+            <code>
+               class UniversityCourse
+                attr_reader :title, :instructor, :department, :number
+                attr_accessor :title
 
-              def initialize(title, instructor, department, number)
-                @title = title
-                @instructor = instructor
-                @department = department
-                @number = number
+                def initialize(title, instructor, department, number)
+                  @title = title
+                  @instructor = instructor
+                  @department = department
+                  @number = number
+                end
               end
-            end
-          </code>
-        </pre>
-      </p>
-      <p>
-        Instead of creating every single variable as an attr_accessor, it is important to distinguish which variables are truly readers, writers, or both and then assign them appropriatly. This helps in keeping your class and code specific and well designed.
-      </p>
-      <p>
-        Continuing with this example, I am going to create a method within this class named add_student. These methods will create a new class variable and use the already created class variables that were created as instantiation.
-      </p>
-      <p>
-        <pre>
-          <code>
-            class UniversityCourse
-              attr_reader :title, :instructor, :department, :number
-              attr_accessor :title
+            </code>
+          </pre>
+        </p>
+        <p>
+          Instead of creating every single variable as an attr_accessor, it is important to distinguish which variables are truly readers, writers, or both and then assign them appropriatly. This helps in keeping your class and code specific and well designed.
+        </p>
+        <p>
+          Continuing with this example, I am going to create a method within this class named add_student. These methods will create a new class variable and use the already created class variables that were created as instantiation.
+        </p>
+        <p>
+          <pre>
+            <code>
+              class UniversityCourse
+                attr_reader :title, :instructor, :department, :number
+                attr_accessor :title
 
-              def initialize(title, instructor, department, number)
-                @title = title
-                @instructor = instructor
-                @department = department
-                @number = number
+                def initialize(title, instructor, department, number)
+                  @title = title
+                  @instructor = instructor
+                  @department = department
+                  @number = number
+                end
+
+                def add_student(name)
+                  @name = name
+                  p "#{@name} has been added to #{@title}."
+                end
               end
+            </code>
+          </pre>
+        </p>
+        <p>
+          Now I'll call instructor, title, and add_student methods to demonstrate how they each work.
+        </p>
+        <p>
+          <pre>
+            <code>
+              >> course1.title
+              "Internet Cultures"
+              >> course1.add_student("Jesse Smith")
+              "Jesse Smith has been added to Internet Cultures."
+              >> course1.instructor
+              "Dr. Byte"
+            </code>
+          </pre>
+        </p>
+        <p>
+          As we can see title and instructor methods returned the value of those variables. The add_student method was passed an argument "Jesse Smith." And a string using this variable and the @title class variable were used in the returning string: "Jesse Smith has been added to Internet Cultures." Now, in the hypothetical future I can build new methods for this class that could be needed to store information about various university courses. These coulde include: delete_student, assign_grade, student_list, etc. This class could then be used for any university course, whether it is an African American History course, a Design Science course, or a Regression Anaysis course. This class provides a working blueprint from which to build instances of university courses.
+        </p>
 
-              def add_student(name)
-                @name = name
-                p "#{@name} has been added to #{@title}."
-              end
-            end
-          </code>
-        </pre>
-      </p>
-      <p>
-        Now I'll call instructor, title, and add_student methods to demonstrate how they each work.
-      </p>
-      <p>
-        <pre>
-          <code>
-            >> course1.title
-            "Internet Cultures"
-            >> course1.add_student("Jesse Smith")
-            "Jesse Smith has been added to Internet Cultures."
-            >> course1.instructor
-            "Dr. Byte"
-          </code>
-        </pre>
-      </p>
-      <p>
-        As we can see title and instructor methods returned the value of those variables. The add_student method was passed an argument "Jesse Smith." And a string using this variable and the @title class variable were used in the returning string: "Jesse Smith has been added to Internet Cultures." Now, in the hypothetical future I can build new methods for this class that could be needed to store information about various university courses. These coulde include: delete_student, assign_grade, student_list, etc. This class could then be used for any university course, whether it is an African American History course, a Design Science course, or a Regression Anaysis course. This class provides a working blueprint from which to build instances of university courses.
-      </p>
+      </section>
 
-    </section>
-    <footer>
-      <h5>© Candice Haddad 2015</h5>
-      <ul>
-        <!-- insert mail, github, linkein, twitter imgs-->
-        <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!"><img alt="Mail" src="../imgs/mail_icon.png"></a></li>
-        <li><a href="http://www.linkedin.com/in/candicehaddad/en"><img alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
-        <li><a href="https://github.com/cjhaddad/"><img alt="GitHub" src="../imgs/github_icon.png"></a></li>
-        <li><a href="https://twitter.com/candicehaddad"><img alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
-      </ul>
-    </footer>
-</main>
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!" target="_blank"><img class="icon" alt="Mail" src="../imgs/mail_icon.png"></a></li>
+              <li><a href="http://www.linkedin.com/in/candicehaddad/en" target="_blank"><img class="icon" alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
+              <li><a href="https://github.com/cjhaddad/" target="_blank"><img class="icon" alt="GitHub" src="../imgs/github_icon.png"></a></li>
+              <li><a href="https://twitter.com/candicehaddad" target="_blank"><img class="icon" alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
+            </ul>
+          </div>
+          <h5 id="footer">© Candice Haddad 2015</h5>
+        </div>
+      </nav>
+
+    </div>
+  </body>
+</html>
 

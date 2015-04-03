@@ -1,66 +1,90 @@
 <!DOCTYPE html>
-<head>
-  <title>Candice's DBC Blog</title>
-  <meta charset="UTF-8">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
-  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
-</head>
-<img id="background" alt="background image" src="../imgs/background.png"/>
-<main>
-     <header>
-      <nav>
-          <ul>
-            <li><a href="http://cjhaddad.github.io/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Resume</a></li>
-            <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
-          </ul>
+<html class="full">
+ <head>
+    <title>Candice Haddad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_custom.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+  <div class="container-fluid">
+
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><!-- brand --></a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://cjhaddad.github.io/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Projects</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://cjhaddad.github.io/blog/blog_directory.html">Blog<span class="caret"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Cultural Posts</a></li>
+                  <li><a href="#">Tech Posts</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Resume</a></li>
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
-    </header>
 
-    <h1>Arrays and Hashes</h1>
-    <h2>Two of the Coolest Ruby Objects, IMHO</h2>
-    <h4>February 20, 2015</h4>
+      <h1>Arrays and Hashes</h1>
+      <h2>Two of the Coolest Ruby Objects, IMHO</h2>
+      <h4>February 20, 2015</h4>
 
-    <section>
-      <p>
-      Arrays and hashes are two types of objects in the Ruby programming languange. Yet, unlike individual objects like an integer or a string, they are container objects. This means that arrays and hashes act as collections of objects, where you can assign them a whole heap of information in the form of any object (including arrays and hashes!). First, I'll describe more thoroughly the array object and then the hash object.
-      </p>
-      <p>
-      An array in the simplest of descriptions can be thought of as a list of objects. Here's an example of a variable named <em>animals</em> with an array of strings assigned to it:
-        <pre>
-          <code>
-            animals = ["monkey", "kangaroo", "octopus"]
-          </code>
-        </pre>
-      Visually, we can regonize an array object through its use of square brackets: [] . Inside of the array above are three string objects. Arrays use an ordered index system to identify each of the objects within it. Ordered means that each object in an array is given an index, which in the case of an array is a number, that follows normal seqeuntial counting. HOWEVER! By "normal" I'm referring to the programming norm of counting that always begins at 0. Therefore, using the <em>animal</em> array example above, the "monkey" string object would have an index of 0; the "kangaroo" string object would have an index of 1; and the "octopus" string object would have an index of 2. Subsequent objects after "octopus" would continue the sequential numerical indexing.
-      </p>
-      <p>Hashes like arrays use an ordered, index system to identify the information within it. Hashes begin to differ from arrays when it comes to how it stores objects. Hashes store information by a key/ value pair. Here's an example of a variable named <em>my_pet</em> with a hash assigned to it:
-        <pre>
-          <code>
-            my_pet = { "name" => "Rufus",
-                       "type" => "dog",
-                       "breed" => "chihuahua",
-                       "favorite food" => "ALL THE MEATS" }
-          </code>
-        </pre>
-      In hash variable <em>my_pet</em> "name", "type", "breed", and "favorite food" are keys, where as "Rufus", "dog", "chihuahua", and "ALL THE MEATS" are the keys' respective values. A hash key works as an index of a hash value. The key and value of a hash pair can be any kind of object -- in this example I used strings. This is important to note, for it is here where a major difference between hashes and arrays is occurs. A hash key is like an array index, but instead of only being an index identified by an integer it can be any object (including an integer). Another interesting aspect of a hash's index system is that there is also a meta-index, where each key/ value pair has a numerical index, just like the objects in an array. Similar to arrays the meta-index system of hashes follows a sequential numbering. So, the key/value pair of "name" => "Rufus" has a meta-index of 0, and so on.
-      </p>
-      <p>
-        Arrays and hashes provide powerful ways to store and access data. Depending on the context and desired uses of various information, both arrays and hashes offer dynamic modes of working with data in our programs.
-      </p>
-    </section>
-    <footer>
-      <h5>© Candice Haddad 2015</h5>
-      <ul>
-        <!-- insert mail, github, linkein, twitter imgs-->
-        <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!"><img alt="Mail" src="../imgs/mail_icon.png"></a></li>
-        <li><a href="http://www.linkedin.com/in/candicehaddad/en"><img alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
-        <li><a href="https://github.com/cjhaddad/"><img alt="GitHub" src="../imgs/github_icon.png"></a></li>
-        <li><a href="https://twitter.com/candicehaddad"><img alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
-      </ul>
-    </footer>
-</main>
+      <section>
+        <p>
+        Arrays and hashes are two types of objects in the Ruby programming languange. Yet, unlike individual objects like an integer or a string, they are container objects. This means that arrays and hashes act as collections of objects, where you can assign them a whole heap of information in the form of any object (including arrays and hashes!). First, I'll describe more thoroughly the array object and then the hash object.
+        </p>
+        <p>
+        An array in the simplest of descriptions can be thought of as a list of objects. Here's an example of a variable named <em>animals</em> with an array of strings assigned to it:
+          <pre>
+            <code>
+              animals = ["monkey", "kangaroo", "octopus"]
+            </code>
+          </pre>
+        Visually, we can regonize an array object through its use of square brackets: [] . Inside of the array above are three string objects. Arrays use an ordered index system to identify each of the objects within it. Ordered means that each object in an array is given an index, which in the case of an array is a number, that follows normal seqeuntial counting. HOWEVER! By "normal" I'm referring to the programming norm of counting that always begins at 0. Therefore, using the <em>animal</em> array example above, the "monkey" string object would have an index of 0; the "kangaroo" string object would have an index of 1; and the "octopus" string object would have an index of 2. Subsequent objects after "octopus" would continue the sequential numerical indexing.
+        </p>
+        <p>Hashes like arrays use an ordered, index system to identify the information within it. Hashes begin to differ from arrays when it comes to how it stores objects. Hashes store information by a key/ value pair. Here's an example of a variable named <em>my_pet</em> with a hash assigned to it:
+          <pre>
+            <code>
+              my_pet = { "name" => "Rufus",
+                         "type" => "dog",
+                         "breed" => "chihuahua",
+                         "favorite food" => "ALL THE MEATS" }
+            </code>
+          </pre>
+        In hash variable <em>my_pet</em> "name", "type", "breed", and "favorite food" are keys, where as "Rufus", "dog", "chihuahua", and "ALL THE MEATS" are the keys' respective values. A hash key works as an index of a hash value. The key and value of a hash pair can be any kind of object -- in this example I used strings. This is important to note, for it is here where a major difference between hashes and arrays is occurs. A hash key is like an array index, but instead of only being an index identified by an integer it can be any object (including an integer). Another interesting aspect of a hash's index system is that there is also a meta-index, where each key/ value pair has a numerical index, just like the objects in an array. Similar to arrays the meta-index system of hashes follows a sequential numbering. So, the key/value pair of "name" => "Rufus" has a meta-index of 0, and so on.
+        </p>
+        <p>
+          Arrays and hashes provide powerful ways to store and access data. Depending on the context and desired uses of various information, both arrays and hashes offer dynamic modes of working with data in our programs.
+        </p>
+      </section>
 
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!" target="_blank"><img class="icon" alt="Mail" src="../imgs/mail_icon.png"></a></li>
+              <li><a href="http://www.linkedin.com/in/candicehaddad/en" target="_blank"><img class="icon" alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
+              <li><a href="https://github.com/cjhaddad/" target="_blank"><img class="icon" alt="GitHub" src="../imgs/github_icon.png"></a></li>
+              <li><a href="https://twitter.com/candicehaddad" target="_blank"><img class="icon" alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
+            </ul>
+          </div>
+          <h5 id="footer">© Candice Haddad 2015</h5>
+        </div>
+      </nav>
+
+    </div>
+  </body>
+</html>

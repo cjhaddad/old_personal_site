@@ -1,67 +1,92 @@
 <!DOCTYPE html>
-<head>
-  <title>Candice's DBC Blog</title>
-  <meta charset="UTF-8">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
-  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
-</head>
-<img id="background" alt="background image" src="../imgs/background.png"/>
-<main>
-     <header>
-      <nav>
-          <ul>
-            <li><a href="http://cjhaddad.github.io/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Resume</a></li>
-            <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
-          </ul>
+<html class="full">
+ <head>
+    <title>Candice Haddad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Josefin+Slab' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_custom.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap_blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+  <div class="container-fluid">
+
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><!-- brand --></a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://cjhaddad.github.io/">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Projects</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://cjhaddad.github.io/blog/blog_directory.html">Blog<span class="caret"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Cultural Posts</a></li>
+                  <li><a href="#">Tech Posts</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Resume</a></li>
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!">Contact</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
-    </header>
 
-    <h1>CSS Positioning</h1>
-    <h2>How to Avoid Hurting Your Computer</h2>
-    <h4>February 14, 2015</h4>
+      <h1>CSS Positioning</h1>
+      <h2>How to Avoid Hurting Your Computer</h2>
+      <h4>February 14, 2015</h4>
 
-    <section>
-      <p>
-       Over the past week as the Phase 0 curriculum has introduced us to HTML and CSS, I have admittedly been struggling with CSS layouts and, specifically, the position property and its values. There was a moment, thankfully a brief moment, during one of this week's challenges where throwing my computer out the window was looking like a logical solution. The exercise was to work through various repositionings of various div/ box elements. I finished the challenge with the aid of TA office hours and some of my cohorts' guidance (props to the awesomeness of the DBC support system!). And now that this week's technical blog post is to address an aspect of this week's challenges, I'm tackling CSS positioning. So, here goes my explanation (with the help of a few awesome resources!).
-      </p>
-      <p>
-        First thing to know about the CSS position property is its function. The position property allows you to tell a particular HTML element how you want it to work within the flow of the other elements and their properties. In essense it allows you to arrange your various HTML elements in all sorts of ways! It allows you to break out of the vertical, stacked-on-top-of-each-other default.
-      </p>
-      <p>
-          Four primary values can be used for the position property; they include: static, relative, absolute, and fixed. Static is the default value of all elements. Using a static value for the position of your element leaves you in the default mode of everything being linear and vertical. When your element is using the static position, you are unable to utlize the offset properties of left, right, top, and bottom. These offset properties are how you tell your element where and how to position itself within the DOM, or generally your Internet browser's window. You cannot use these offset properties until you give your element a non-static position value.
-      </p>
-      <p>
-        So! First non-static position value to discuss: relative! When you assign an element the position value of relative, you give it the ability to use the offset properties of left, right, top, and bottom, and, therefore, the ability to move it about the page. Important to note about the relative position value is that it also grant an element the ability to use a coordinate system other than the default document coordinate system. Basically, what this means is that you can take and element with a relative position and give it different point of reference to how it positions itself. This is done by placing the relative-positioned element within another element. So, an element with a relative position with an offset property of top: 400px will use the coordinate system of its parent element.If its parent element is the document its top will be 400px from the top of the document. If its parent element is, say, a content element that is already positioned 400px from the top of the document, it will be 400px from the content element, instead of 400px from the document.
-      </p>
-      <p>
-        Moving on to the next position value...absolute. An element that is given the position value of absolute is taken out of the normal flow of the document. I love the simile href="http://alistapart.com/article/css-positioning-101">Noah Stokes uses</a>: "If the relative value acts like Superman, then the absolute value mirrors Inception—a place where you design your own world." The absolute position value gives an element the ability to be placed anywhere within the document using the offset properties without disrupting the placement of any other elements or the document's flow. Furthermore, the absolute position value creates a new coordinate system for any child elements it has, therefore taking those child elements also out of the document's normal flow (This aspect of the absolute value is where I was running into problems during my challenge and had to fight off the computer-tossing urge. Hooray! for having this problem and now being able to articulate why! ::cabbage patch dance::).
-      </p>
-      <p>
-        Last, but indeed, certainly not least, is the position value of fixed. A fixed position value, like its name suggests, fixes an element with offset properties as they relate to the window. This last part -- about "as they relate to the window"-- is important to distinguish for this is as opposed to the element relating to its parent element. Therefore, a fixed position value gives an element the ability to stay-put even while you scroll through a window.
-      </p>
-      <p>
-        Okay, I kind of fibbed...there are two more values for the position property-- inherit and initial. Inherit assigns there element the position value of its parent element -- pretty self explanatory here. Nonetheless, this is important to note, because, as was noted at the beginning, an element's default position value is static regardless its parent's position value. And, lastly, for real this time, the initial value reverts the position value back to its default.
-      </p>
-      <p>Phew! I think I did it! I just explained the various values of the CSS position property. There's always of course room for improvement (which goes to say I welcome your feedback and clarification!). But at least for now, the urge to throw my computer out the window on the account of CSS positioning has subsided...</p>
+      <section>
+        <p>
+         Over the past week as the Phase 0 curriculum has introduced us to HTML and CSS, I have admittedly been struggling with CSS layouts and, specifically, the position property and its values. There was a moment, thankfully a brief moment, during one of this week's challenges where throwing my computer out the window was looking like a logical solution. The exercise was to work through various repositionings of various div/ box elements. I finished the challenge with the aid of TA office hours and some of my cohorts' guidance (props to the awesomeness of the DBC support system!). And now that this week's technical blog post is to address an aspect of this week's challenges, I'm tackling CSS positioning. So, here goes my explanation (with the help of a few awesome resources!).
+        </p>
+        <p>
+          First thing to know about the CSS position property is its function. The position property allows you to tell a particular HTML element how you want it to work within the flow of the other elements and their properties. In essense it allows you to arrange your various HTML elements in all sorts of ways! It allows you to break out of the vertical, stacked-on-top-of-each-other default.
+        </p>
+        <p>
+            Four primary values can be used for the position property; they include: static, relative, absolute, and fixed. Static is the default value of all elements. Using a static value for the position of your element leaves you in the default mode of everything being linear and vertical. When your element is using the static position, you are unable to utlize the offset properties of left, right, top, and bottom. These offset properties are how you tell your element where and how to position itself within the DOM, or generally your Internet browser's window. You cannot use these offset properties until you give your element a non-static position value.
+        </p>
+        <p>
+          So! First non-static position value to discuss: relative! When you assign an element the position value of relative, you give it the ability to use the offset properties of left, right, top, and bottom, and, therefore, the ability to move it about the page. Important to note about the relative position value is that it also grant an element the ability to use a coordinate system other than the default document coordinate system. Basically, what this means is that you can take and element with a relative position and give it different point of reference to how it positions itself. This is done by placing the relative-positioned element within another element. So, an element with a relative position with an offset property of top: 400px will use the coordinate system of its parent element.If its parent element is the document its top will be 400px from the top of the document. If its parent element is, say, a content element that is already positioned 400px from the top of the document, it will be 400px from the content element, instead of 400px from the document.
+        </p>
+        <p>
+          Moving on to the next position value...absolute. An element that is given the position value of absolute is taken out of the normal flow of the document. I love the simile href="http://alistapart.com/article/css-positioning-101">Noah Stokes uses</a>: "If the relative value acts like Superman, then the absolute value mirrors Inception—a place where you design your own world." The absolute position value gives an element the ability to be placed anywhere within the document using the offset properties without disrupting the placement of any other elements or the document's flow. Furthermore, the absolute position value creates a new coordinate system for any child elements it has, therefore taking those child elements also out of the document's normal flow (This aspect of the absolute value is where I was running into problems during my challenge and had to fight off the computer-tossing urge. Hooray! for having this problem and now being able to articulate why! ::cabbage patch dance::).
+        </p>
+        <p>
+          Last, but indeed, certainly not least, is the position value of fixed. A fixed position value, like its name suggests, fixes an element with offset properties as they relate to the window. This last part -- about "as they relate to the window"-- is important to distinguish for this is as opposed to the element relating to its parent element. Therefore, a fixed position value gives an element the ability to stay-put even while you scroll through a window.
+        </p>
+        <p>
+          Okay, I kind of fibbed...there are two more values for the position property-- inherit and initial. Inherit assigns there element the position value of its parent element -- pretty self explanatory here. Nonetheless, this is important to note, because, as was noted at the beginning, an element's default position value is static regardless its parent's position value. And, lastly, for real this time, the initial value reverts the position value back to its default.
+        </p>
+        <p>Phew! I think I did it! I just explained the various values of the CSS position property. There's always of course room for improvement (which goes to say I welcome your feedback and clarification!). But at least for now, the urge to throw my computer out the window on the account of CSS positioning has subsided...</p>
 
-      <p>Resources:</p>
-      <p><a href="http://www.w3schools.com/cssref/pr_class_position.asp">http://www.w3schools.com/cssref/pr_class_position.asp</a></p>
-      <p><a href="http://alistapart.com/article/css-positioning-101">http://alistapart.com/article/css-positioning-101</a></p>
-      <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference</a></p>
-    </section>
-    <footer>
-      <h5>© Candice Haddad 2015</h5>
-      <ul>
-        <!-- insert mail, github, linkein, twitter imgs-->
-        <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!"><img alt="Mail" src="../imgs/mail_icon.png"></a></li>
-        <li><a href="http://www.linkedin.com/in/candicehaddad/en"><img alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
-        <li><a href="https://github.com/cjhaddad/"><img alt="GitHub" src="../imgs/github_icon.png"></a></li>
-        <li><a href="https://twitter.com/candicehaddad"><img alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
-      </ul>
-    </footer>
-</main>
+        <p>Resources:</p>
+        <p><a href="http://www.w3schools.com/cssref/pr_class_position.asp">http://www.w3schools.com/cssref/pr_class_position.asp</a></p>
+        <p><a href="http://alistapart.com/article/css-positioning-101">http://alistapart.com/article/css-positioning-101</a></p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference</a></p>
+      </section>
+
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="mailto:candice.haddad@gmail.com?Subject=Hello!" target="_blank"><img class="icon" alt="Mail" src="../imgs/mail_icon.png"></a></li>
+              <li><a href="http://www.linkedin.com/in/candicehaddad/en" target="_blank"><img class="icon" alt="LinkedIn" src="../imgs/linkedin_icon.png"></a></li>
+              <li><a href="https://github.com/cjhaddad/" target="_blank"><img class="icon" alt="GitHub" src="../imgs/github_icon.png"></a></li>
+              <li><a href="https://twitter.com/candicehaddad" target="_blank"><img class="icon" alt="Twitter" src="../imgs/twitter_icon.png"></a></li>
+            </ul>
+          </div>
+          <h5 id="footer">© Candice Haddad 2015</h5>
+        </div>
+      </nav>
+
+    </div>
+  </body>
+</html>
 
