@@ -42,3 +42,12 @@ h5 {
 a {
   color: #BCC8CC;
 }
+
+html, body {
+  height: 100%;
+}
+
+object {
+  margin-left: 10%;
+  margin-right: 10%;
+}
